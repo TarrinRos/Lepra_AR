@@ -1,23 +1,14 @@
-<!-- <h4>Psot details:</h4>
-<p>
-  <%= @row ['content'] %>
-  <br />
-    Added at <%= @row ['created_date'] %>
-  <br />
-</p>
-
+<h4>Post details:</h4>
 <h4>Comments:</h4>
 
-<% @comments.each do |comment| %>
-  <p>
+<p>
   <br />
-    <%= comment ['content'] %>
+    <%= @comments.content %>
   </p>
-  <span style="font-size: 75%; color:#8f8e8f">Added at: <%= comment ['created_date'] %></span>
+  <span style="font-size: 75%; color:#8f8e8f">Added at: <%= @comments.created_at %></span>
   <hr />
-<% end %>
 
-<form action="/details/<%= @row ['id'] %>" method="POST" role="form">
+<form action="/details/<%= @row.id %>" method="POST" role="form">
 
 <div class="form-group">
   <label for="exampleFormControlTextarea1">add comment</label>
@@ -26,4 +17,4 @@
 
 <button type="submit" class="btn btn-primary">Add comment</button>
 
-</form> -->
+</form>
