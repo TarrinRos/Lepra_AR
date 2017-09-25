@@ -1,12 +1,14 @@
-<!-- <h2>Latest posts:</h2>
+<h2>Latest posts:</h2>
 <br />
   <% @results.each do |row| %>
 <p>
-  <%= row ['content'] %>
+<h4><%= row.author %></h3>
 <br />
-Added at  <%= row ['created_date'] %>
-  <br />
+  <%= row.content %>
+<br />
+Added at  <%= row.created_at %>
+  <!-- <br />
     <a href="/details/<%= row ['id']%>">Comments</a>
-</p>
+</p> -->
 <hr />
-  <% end %> -->
+  <% end %>

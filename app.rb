@@ -1,21 +1,23 @@
-# encoding: utf-8
-
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
-require "sqlite3"
-require "sinatra/activerecord"
+require 'sqlite3'
+require 'sinatra/activerecord'
 
 set :database, 'sqlite3:leprosorium.db'
 
 class Post < ActiveRecord::Base
+  validates :author, presence: true, length: { minimum: 3 }
+  validates :content, presence: true
 end
+
 class Comment < ActiveRecord::Base
 end
 
 get '/' do
   # posts list from DataBase
-  erb 'Hello'
+  @results = Post.order 'created_at DESC'
+  erb :index
 end
 
 get '/new' do

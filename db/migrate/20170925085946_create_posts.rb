@@ -1,10 +1,10 @@
 class CreatePosts < ActiveRecord::Migration[5.1]
   def change
     create_table :posts do |t|
-      t.text :content
       t.text :author
+      t.text :content
 
-      t.timestamp
+      t.timestamps
     end
   end
 end
