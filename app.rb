@@ -14,6 +14,7 @@ end
 class Comment < ActiveRecord::Base
   validates :author, presence: true, length: { minimum: 3 }
   validates :content, presence: true
+  validates :post_id, presence: true
 end
 
 get '/' do
@@ -44,7 +45,7 @@ end
 post '/details/:id' do
   @comment = Comment.new params[:comment]
   if @comment.save
-    erb 'Thanks for your post'
+    erb 'Thanks for your comment'
   else
     @error = @comment.errors.full_messages.first
     erb :details
