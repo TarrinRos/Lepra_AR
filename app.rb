@@ -35,7 +35,6 @@ post '/new' do
 end
 
 get '/details/:id' do
-  @comments = Comment.find params[:post_id]
-  @row = Post.new params[:post]
+  @post = Post.find(params[:id])
   erb :details
 end
