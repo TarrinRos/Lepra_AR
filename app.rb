@@ -7,13 +7,15 @@ require 'sinatra/activerecord'
 set :database, 'sqlite3:leprosorium.db'
 
 class Post < ActiveRecord::Base
+  has_many :comments
   validates :author, presence: true, length: { minimum: 3 }
   validates :content, presence: true
 end
 
 class Comment < ActiveRecord::Base
-  validates :author, presence: true, length: { minimum: 3 }
-  validates :content, presence: true
+  belongs_to :post
+  validates :com_author, presence: true, length: { minimum: 3 }
+  validates :com_content, presence: true
   validates :post_id, presence: true
 end
 
